@@ -1,5 +1,9 @@
 # devTinder-web
 
+- create a vite + react application 
+- install tailwind cssnpm install tailwindcss @tailwindcss/vite https://tailwindcss.com/docs/installation/using-vite
+- install daisyUi npm i -D daisyui@latest https://daisyUI.com/ https://daisyui.com/docs/install/ https://daisyui.com/docs/install/vite/
+- add narbar component from daisyui
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
