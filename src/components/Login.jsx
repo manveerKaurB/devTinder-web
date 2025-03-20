@@ -7,6 +7,7 @@ import { BASE_URL } from '../utils/Constants';
 const Login = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogin = async () => {
@@ -19,6 +20,7 @@ const Login = () => {
       navigate("/");
     }
     catch(err) {
+      setError(err?.response?.data || "Something went wrong!!");
       console.error(err);
     }
   }
@@ -35,7 +37,9 @@ const Login = () => {
             <label className="fieldset-label">Password</label>
             <input type="password" className="input" placeholder="Password" value={password}
             onChange={(e) => setPassword(e.target.value)}/>
-            
+
+            <p className="text-red-500">{error}</p>
+
             <button className="btn btn-neutral mt-4" onClick={handleLogin}>Login</button>
           </fieldset>
         </div>
