@@ -21,7 +21,13 @@ Body
 - Install axios
 - CORS - install cors in backend => add middleware to app with configurations: origin, credentials: true
 - whenever you're making api call pass axios => { withCredentials: true }
-
+- install redux toolkit https://redux-toolkit.js.org/tutorials/quick-start
+- install react-redux + @reduxjs/toolkit
+- configure store => Provider => createSlice => add reducer to store
+- add redux devtools in chrome
+- login and see if your data is coming properly in the store
+- NavBar should update as soon as user logs in
+- refractor our code to add constants file + create a component folder and restructre files.
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
