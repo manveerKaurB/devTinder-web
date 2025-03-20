@@ -17,6 +17,11 @@ Body
 - Create browserRouter > Routes > Route = /Body > RouteChildren
 - Create an Outlet in your body component
 - create a footer
+- create a login page
+- Install axios
+- CORS - install cors in backend => add middleware to app with configurations: origin, credentials: true
+- whenever you're making api call pass axios => { withCredentials: true }
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
