@@ -28,6 +28,12 @@ Body
 - login and see if your data is coming properly in the store
 - NavBar should update as soon as user logs in
 - refractor our code to add constants file + create a component folder and restructre files.
+- you should not be able to access others routes without login
+- if token is not present, redirect user to login page
+- logout 
+- profile page
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
