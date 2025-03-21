@@ -25,14 +25,14 @@ const connections = useSelector((store) => store.connections);
   if(connections.length === 0) return <h1>No connections found.</h1>;
 
   return (
-    <div className="flex justify-between items-center text-center my-10">
+    <div className="text-center my-10">
         <h1 className="font-bold text-2xl">
             Connections
         </h1>
         {connections.map((connection) => {
             const {_id, firstName, lastName, photoUrl, age, gender, about} = connection;
             return (
-                <div className="items-center justify-between m-4 p-4 rounded-lg bg-base-200 flex w-2/3" key={_id}>
+                <div className="justify-between m-4 p-4 rounded-lg bg-base-200 flex w-2/3" key={_id}>
                     <div>
                         <img alt="photo" className="w-20 h-20" src= {photoUrl}/>
                     </div>
