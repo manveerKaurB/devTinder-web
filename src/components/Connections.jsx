@@ -10,8 +10,6 @@ const connections = useSelector((store) => store.connections);
   const fetchConnections = async () => {
     try {   
         const res = await axios.get( BASE_URL +"/user/connections", {withCredentials: true});
-        console.log("connections:");
-        console.log(res?.data?.data);
         dispatch(addConnections(res?.data?.data));
     }   
     catch(err) {
@@ -23,13 +21,11 @@ const connections = useSelector((store) => store.connections);
     fetchConnections();
   }, [])
 
-  console.log("connections from store:");
-  console.log(connections);
   if(!connections) return;
   if(connections.length === 0) return <h1>No connections found.</h1>;
 
   return (
-    <div className="text-center my-10">
+    <div className="flex justify-between items-center text-center my-10">
         <h1 className="font-bold text-2xl">
             Connections
         </h1>
@@ -44,11 +40,7 @@ const connections = useSelector((store) => store.connections);
                         <h2>{firstName + " " + lastName}</h2>
                         {age && gender && <p>{age + ", " + gender}</p>}
                         <p>{about}</p>
-                    </div>    
-                    <div>
-                        <button className="btn btn-primary mx-2">Accept</button>
-                        <button className="btn btn-secondary mx-2">Reject</button>
-                    </div>    
+                    </div>
                 </div>
             )
         })}
