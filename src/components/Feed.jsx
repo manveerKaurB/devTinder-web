@@ -24,7 +24,7 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  return feed && (
+  return feed && feed[0] && (
     <div className="flex justify-center my-10">
       <UserCard user={feed[0]}/>
       {/* {feed.forEach(user =>  <UserCard user={user}/>)} */}

@@ -32,6 +32,10 @@ Body
 - if token is not present, redirect user to login page
 - logout 
 - profile page
+- edit profile feature
+- show toast message on save of profile
+- new page - see all my connections
+- new page - see all my connection requests
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
