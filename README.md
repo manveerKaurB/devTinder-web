@@ -42,6 +42,25 @@ Body
 - signup new user
 - e2e testing
 
+# Deployment
+- signup on aws
+- create new account
+- lanch an instance
+- create key value pair
+- modify pemissions after launching an instance chmod 400 "manveeraws-secret.pem"
+- connect using below command - ssh -i pemfile machineThatWeAreAccessing e.g. ssh -i "manveeraws-secret.pem" ubuntu@ec2-13-60-206-62.eu-north-1.compute.amazonaws.com
+- install node version 23.7.0
+- git clone
+frontend :
+    - npm install -> installs all dependencies
+    - npm run build
+    - sudo apt update - update system dependencies
+    - sudo apt install nginx - install 'engine X'
+    - sudo systemctl start nginx - start 'engine X'
+    - sudo systemctl enable nginx - makes 'engine X' up and running 
+    - copy code from dist(bulld files) to /var/www/html
+    - enable port 80 on your aws instance
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
