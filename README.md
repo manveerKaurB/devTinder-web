@@ -36,7 +36,11 @@ Body
 - show toast message on save of profile
 - new page - see all my connections
 - new page - see all my connection requests
+- feature - accept/reject connection request
 
+- send/ ignore user card from feed
+- signup new user
+- e2e testing
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
