@@ -58,7 +58,7 @@ frontend :
     - sudo apt install nginx - install 'engine X'
     - sudo systemctl start nginx - start 'engine X'
     - sudo systemctl enable nginx - makes 'engine X' up and running 
-    - copy code from dist(bulld files) to /var/www/html
+    - copy code from dist(bulld files) to /var/www/html i.e. sudo scp -r dist/* /var/www/html
     - enable port :80 on your aws instance
 Backend
     - allowed ec2 instance public ip on mongodb server
@@ -83,6 +83,13 @@ Backend
         }
 - restart nginx -> sudo systemctl restart nginx
 
+# Adding a custom Domain name
+- purchased domain name from godaddy
+- signup on cloudflare and add a new domain name
+- change the nameservers on godaddy and point it to cloudflare
+- wait for sometime till your nameservers are updated
+- DNS record: A record - devTinder.in -> 13.60.206.62
+- enable SSL for website
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
