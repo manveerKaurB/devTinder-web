@@ -59,7 +59,30 @@ frontend :
     - sudo systemctl start nginx - start 'engine X'
     - sudo systemctl enable nginx - makes 'engine X' up and running 
     - copy code from dist(bulld files) to /var/www/html
-    - enable port 80 on your aws instance
+    - enable port :80 on your aws instance
+Backend
+    - allowed ec2 instance public ip on mongodb server
+    - installed npm install pm2 -g
+    - pm2 start npm -- start
+    - pm2 logs (command used to see pm2 logs)
+    - pm2 flush npm (clear logs of application where app/process name is 'npm')
+    - pm2 list  - list down all processes
+    - pm2 stop <name> - stop that process with given name
+    - pm2 delete <name> - deletes that process with given name
+    - pm2 start npm --name "<name>" -- start (start process, and we can give any name here, that would be the process name)
+
+- nginx config - /etc/nginx/sties-available/default
+        server_name 13.60.206.62;
+        location /api/ {
+                proxy_pass http://localhost:3000/;  # Forward requests to your >
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+- restart nginx -> sudo systemctl restart nginx
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
