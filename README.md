@@ -91,6 +91,18 @@ Backend
 - DNS record: A record - devTinder.in -> 13.60.206.62
 - enable SSL for website
 
+# scheduling cron jobs in nodejs (backend project)
+- install node-cron
+- Learning about cron expressions syntax - crontab.guru
+- Schedule a job
+- install date-fns package
+- Find all the unique emailId who have got connecction request in previous day
+- send email
+- explore queue mechanism to send bulk emails
+- Amazon SES bulk emails
+- Make sendEmail function dynamic
+- bee-queue & bull npm packages to handle queue
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
