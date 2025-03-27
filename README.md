@@ -103,6 +103,22 @@ Backend
 - Make sendEmail function dynamic
 - bee-queue & bull npm packages to handle queue
 
+# Razorpay Payment Gateway Integration
+ - sign up on RazoRpay & complete KYC
+ - created UI for premium page
+ - Creating an API for create order in backend
+ - install razorpay package
+ - https://github.com/razorpay/razorpay-node/tree/master/documents
+ - add razorpay secret key in .env file
+ - initialize Razorpay in utils
+ - creating order on Razorpay
+ - create schema and model
+ - saved the order in payments collection in db
+ - make the api dynamic
+ - setup Razorpay webhook on your live API
+ - verify webhook signature https://razorpay.com/docs/webhooks/validate-test/
+ - ref for payment payload https://razorpay.com/docs/webhooks/payloads/payments/
+ - ref https://razorpay.com/docs/payments/server-integration/nodejs/integration-steps/
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
