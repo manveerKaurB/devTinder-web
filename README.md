@@ -119,6 +119,14 @@ Backend
  - verify webhook signature https://razorpay.com/docs/webhooks/validate-test/
  - ref for payment payload https://razorpay.com/docs/webhooks/payloads/payments/
  - ref https://razorpay.com/docs/payments/server-integration/nodejs/integration-steps/
+
+
+# Real Time Chat using Websocket(Socket.io)
+- Build the UI for a chat window on /chat/:targetUserId
+- install socket.io
+- setup socket.io in backend
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
