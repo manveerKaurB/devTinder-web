@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { createSocketConnection } from '../utils/socket';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { BASE_URL } from '../utils/Constants';
 
 const Chat = () => {
     const { targetUserId } = useParams();
@@ -9,6 +11,22 @@ const Chat = () => {
     const [newMessage, setNewMessage] = useState("");
     const user = useSelector(store=> store.user);
     const userId = user?._id;
+
+    const fetchChatMessages = async () => {
+        const chat = await axios.post(BASE_URL + "/chat/" + targetUserId, {}, {withCredentials: true})
+
+        const chatMessages = chat?.data?.messages.map((msg)=> {
+            const { senderId, text } = msg;
+            return { firstName: senderId?.firstName,
+                lastName: senderId?.lastName,
+                text: text,
+            }
+        });
+        setMessages(chatMessages);
+    }
+    useEffect(()=> {
+        fetchChatMessages();
+    }, []);
     useEffect(()=> {
         if(!userId) return;
         const socket = createSocketConnection();
@@ -17,9 +35,8 @@ const Chat = () => {
         socket.emit("joinChat", {firtsName: user.firstName, userId, targetUserId});
 
         // listen for messages
-        socket.on("messageReceived", ({firstName, text}) => {
-            console.log(firstName + ": " + text);
-            setMessages((messages) => [...messages, {firstName, text}])
+        socket.on("messageReceived", ({firstName, lastName, text}) => {
+            setMessages((messages) => [...messages, {firstName, lastName, text}])
         })
 
         // return method called when component unmounts i.e. unloads, i.e . user moves to some other page
@@ -31,7 +48,11 @@ const Chat = () => {
     const sendMessage = () => {
         try {
             const socket = createSocketConnection();
-            socket.emit("sendMessage", {firstName:user.firstName, userId, targetUserId, text: newMessage});
+            socket.emit("sendMessage", {
+                firstName:user.firstName,
+                lastName: user.lastName,
+                userId, targetUserId,
+                text: newMessage});
             setNewMessage("");
         }
         catch(err) {
@@ -44,7 +65,7 @@ const Chat = () => {
         <div className="flex-1 overflow-scroll p-5">
             {messages && messages.map((msg, index) => {
                 return <div key={index}>
-                    <div className="chat chat-start">
+                    <div className={"chat " + (msg?.firstName === user?.firstName ? "chat-end" : "chat-start")}>
                         <div className="chat-image avatar">
                             <div className="w-10 rounded-full">
                             <img
@@ -53,7 +74,7 @@ const Chat = () => {
                             </div>
                         </div>
                         <div className="chat-header">
-                            {msg.firstName}
+                            {`${msg.firstName} ${msg.lastName}`}
                             <time className="text-xs opacity-50">12:45</time>
                         </div>
                         <div className="chat-bubble">{msg.text}</div>

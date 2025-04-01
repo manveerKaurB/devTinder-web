@@ -125,7 +125,9 @@ Backend
 - Build the UI for a chat window on /chat/:targetUserId
 - install socket.io
 - setup socket.io in backend
-
+- setup frontend socket.io-client
+- createSocketConnection
+- listen to events
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
